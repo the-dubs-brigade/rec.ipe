@@ -14,13 +14,26 @@ export default class MainBody extends Component {
         };
     }
 
+    isSearching(props) {
+        const searching = props.searching;
+        if(!searching) {
+            return <div class="frontPage"><HeaderBox></HeaderBox>
+                <SearchBar></SearchBar>
+                <RandomRecipes></RandomRecipes>
+            </div>;
+        }
+        return <div class="searchPage">
+            <SearchBar></SearchBar>
+            <SearchPage></SearchPage>
+        </div>
+    }
+
     render() {
+        let pageBody = this.isSearching(this.state.searching);
         return (<div><h1>This is the main body component!</h1>
-        <HeaderBox></HeaderBox>
-        <SearchBar></SearchBar>
+        {pageBody}
         <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
-        <RandomRecipes></RandomRecipes>
-        <SearchPage></SearchPage></div>);
+        </div>);
     }
 }
 
