@@ -1,6 +1,7 @@
 {
-  "homepage": "https://jls47.github.io/rec.ipe/",
+  "homepage": "https://gray-cliff-0fad8b61e.azurestaticapps.net/",
   "name": "rec.ipe",
+  "main": "src/index.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
