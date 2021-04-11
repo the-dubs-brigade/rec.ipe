@@ -22,19 +22,20 @@ export default class MainBody extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(this.state.search.length);
-            if(this.state.search.length !== 0) {
+            if(this.state.search.length > 1) {
                 if(!this.state.searching) {
                     this.setState({searching: !this.state.searching});
                 } else {
-                    if(this.state.search.charAt(this.state.search.length) == ',') {
-
+                    if(this.state.search.charAt(this.state.search.length - 1) === ',') {
+                        let ingArr = this.state.ingredients;
+                        ingArr.push(this.state.search.substring(0, this.state.search.length - 1));
+                        this.setState({
+                            ingredients: ingArr,
+                            search: ''
+                        })
                     }
                 }
             }
-        
-    }
-
-    searchToggle() {
         
     }
 
@@ -46,7 +47,9 @@ export default class MainBody extends Component {
             </div>;
         }
         return <div className="searchPage">
-            <SearchPage></SearchPage>
+            <SearchPage
+            ingredients = {this.state.ingredients}
+            ></SearchPage>
         </div>
     }
 

@@ -10,7 +10,7 @@ export default class SearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: ["apples", "oranges", "pineapples", "platypus"],
+            ingredients: props.ingredients,
             results: [
                 {
                     id: 659581,
