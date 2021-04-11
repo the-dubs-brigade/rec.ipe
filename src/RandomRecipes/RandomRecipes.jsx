@@ -10,6 +10,7 @@ export default class RandomRecipes extends Component {
         this.state = {
             recipes: [],
         };
+        console.log("creating random recipes")
     }
 
     componentDidMount() {
@@ -27,10 +28,7 @@ export default class RandomRecipes extends Component {
         fetch(url).then(response => response.json()).then(json => {
             console.log(json)
             this.setState({ recipes: json.recipes })
-        }
-        )
-
-
+        })
     }
 
     render() {

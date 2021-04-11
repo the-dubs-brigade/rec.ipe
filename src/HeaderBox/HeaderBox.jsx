@@ -5,7 +5,7 @@ export default class HeaderBox extends Component {
     
 
     render() {
-        return (<div><h1>This is the Header component!</h1>
+        return (<div><h1>Quick 'N' Easy Recipes</h1>
         </div>);
     }
 }
