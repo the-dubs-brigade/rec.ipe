@@ -34,8 +34,9 @@ export default class RandomRecipes extends Component {
     render() {
         return (
             <div>
+                <hr/>
                 <h2>Random Recipe:</h2>
-                <div>
+                <div className="center">
                     {
 
                         this.state.recipes.map(recipe =>
