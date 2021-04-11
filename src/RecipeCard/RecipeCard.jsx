@@ -14,7 +14,8 @@ export default class RecipeCard extends Component {
             title: props.title,
             image: props.image,
             likes: props.likes, 
-            showRecipeDetails: false
+            showRecipeDetails: false,
+            url: props.url
         };
     }
 
@@ -32,7 +33,14 @@ export default class RecipeCard extends Component {
                     <Button variant="primary" onClick={() => this.setState({
                             showRecipeDetails: true})
                     }>
+                        <a href= {this.state.url}
+                         style = {{
+                            color: "white",
+                            
+                        }}>
+                            
                     Get Recipe
+                    </a>
                     </Button>
                    
     
