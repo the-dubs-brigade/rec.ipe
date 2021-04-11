@@ -17,7 +17,7 @@ export default class HeaderBox extends Component {
                     color: "white",
 
                 }}
-                >REC.IPE</a>
+                >Quick 'n' Easy Recipes</a>
                 <div className="HeaderBox-Subtitle">
                     Find Recipes Based Upon Ingredients You Have!
                 </div>

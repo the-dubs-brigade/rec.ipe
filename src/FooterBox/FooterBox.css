@@ -1,6 +1,6 @@
 .FooterBox{
     width: 100%;
-    background-color: rgb(66, 3, 85);
+    background-color: #1f7a8c;
     color: #fff;
     bottom:0;
     position:relative;
@@ -10,6 +10,6 @@
 }
 
 .FooterBox-Subtitle {
-    color: rgba(255, 255, 255, 0.75);
+    color: #eaeaea;
     font-size: medium;
 }

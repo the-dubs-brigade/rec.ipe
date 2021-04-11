@@ -5,11 +5,11 @@
     justify-content: center;
     align-items: baseline;
     margin-bottom: 2em;
-    background-color: rgb(66, 3, 85);
+    background-color: #1f7a8c;
     color: #fff;
 }
 
 .HeaderBox-Subtitle {
-    color: rgba(255, 255, 255, 0.75);
+    color: #eaeaea;
     font-size: medium;
 }
