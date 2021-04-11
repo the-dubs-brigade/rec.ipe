@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './RecipeCard.css';
-import RecipeDetails from '../RecipeDetails/RecipeDetails.jsx';
+// import RecipeDetails from '../RecipeDetails/RecipeDetails.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import Modal from '../Modal/Modal.js'
-
+// import Modal from '../Modal/Modal.js'
 
 
 export default class RecipeCard extends Component {
@@ -18,14 +17,29 @@ export default class RecipeCard extends Component {
             image: props.image,
             likes: props.likes,
             modalToggle: false,
-            url: props.url
+            url: props.url,
+            redirect: false
         };
+
     }
 
     modalHandler = (e) => {
         e.preventDefault();
         this.setState({
             modalToggle: !this.state.modalToggle
+        })
+    }
+
+    handleGetRecipe = (id) => {
+
+        let url = 'https://quickneasy-backend.herokuapp.com/recipedetails/?id='
+            + id
+
+        console.log(url)
+        fetch(url).then(response => response.json()).then(json => {
+            console.log(json)
+            console.log(json.sourceUrl)
+            window.location = json.sourceUrl
         })
     }
 
@@ -50,10 +64,10 @@ export default class RecipeCard extends Component {
                         }>
                             Get Recipe
                     </Button> */}
-                        <Button variant="primary" onClick={() => this.setState({
-
-                            modalToggle: true
-                        })
+                        <Button variant="primary" onClick={() => {
+                            this.handleGetRecipe(this.state.id)
+                            this.setState({ modalToggle: true })
+                        }
                         }>
                             <a href={this.state.url}
                                 style={{
