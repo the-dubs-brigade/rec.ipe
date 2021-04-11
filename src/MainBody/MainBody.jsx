@@ -117,11 +117,24 @@ export default class MainBody extends Component {
         })
     }
 
+    returnHome() {
+        this.setState({
+            searching: false,
+            search: '',
+            ingredients: [],
+            width: 0,
+            height: 0,
+            results: []
+        });
+    }
+
     render() {
         let pageBody = this.isSearching(this.state.searching);
         return (
             <div>
-                <HeaderBox></HeaderBox>
+                <HeaderBox
+                sendHome = {(e) => this.returnHome()}
+                ></HeaderBox>
                 <Container maxWidth = "lg">
                     <Bar
                 value={this.state.search}

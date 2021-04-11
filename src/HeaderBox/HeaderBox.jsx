@@ -11,7 +11,13 @@ export default class HeaderBox extends Component {
         return (
         <div className="HeaderBox">
             <h1>
-                REC.IPE
+                <a href="" 
+                onClick = {this.props.sendHome}
+                style = {{
+                    color: "white",
+
+                }}
+                >REC.IPE</a>
                 <div className="HeaderBox-Subtitle">
                     Find Recipes Based Upon Ingredients You Have!
                 </div>
