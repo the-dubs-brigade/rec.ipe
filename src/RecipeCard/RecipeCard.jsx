@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './RecipeCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 export default class RecipeCard extends Component {
 
@@ -25,8 +26,11 @@ export default class RecipeCard extends Component {
                     <Card.Text>
 
                     </Card.Text>
-                    <Card.Link href="#">Get Recipe</Card.Link>
-                    {/* <Card.Link href="#">Add to Favorites</Card.Link> */}
+                    <Button variant="primary" onClick={this.openModal}>
+                    Get Recipe
+                    </Button>
+                   
+    
                 </Card.Body>
             </Card>
         )

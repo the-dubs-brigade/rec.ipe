@@ -43,6 +43,7 @@ export default class MainBody extends Component {
                 <Container maxWidth = "lg"><h1>This is the main body component!
                     </h1>
                     {pageBody}
+                    <RandomRecipes></RandomRecipes>
                     <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
                     </Container>
                 <FooterBox></FooterBox>

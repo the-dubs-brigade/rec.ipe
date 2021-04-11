@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import Carousel from 'nuka-carousel';
 import './RandomRecipes.css';
+import CardDeck from 'react-bootstrap/Card'
 
 export default class RandomRecipes extends Component {
 
@@ -35,13 +36,13 @@ export default class RandomRecipes extends Component {
         return (
             <div>
                 <h2>Random Recipes:</h2>
-                <Carousel>
+                <CardDeck>
                     {
                         this.state.recipes.map(recipe =>
                             <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
                         )
                     }
-                </Carousel>
+                </CardDeck>
             </div>
         );
 
