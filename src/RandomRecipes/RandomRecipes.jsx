@@ -38,7 +38,7 @@ export default class RandomRecipes extends Component {
                 <Carousel>
                     {
                         this.state.recipes.map(recipe =>
-                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
+                            <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
                         )
                     }
                 </Carousel>

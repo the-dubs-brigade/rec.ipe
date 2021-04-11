@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './RecipeDetails.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from "react-bootstrap/Modal";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class RecipeDetails extends Component {
 
@@ -21,18 +22,24 @@ export default class RecipeDetails extends Component {
 
     render() {
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>{this.state.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Likes: {this.state.likes}</Card.Subtitle>
-                    <img src={this.state.image} alt="recipe"></img>
-                    <Card.Text>
+            <Modal show={true}>
+            <Modal.Header>{this.state.title}</Modal.Header>
+            <Modal.Body>
+            <p>Likes: {this.state.likes}</p>
+            <img src={this.state.image} alt="recipe"></img>
+            <p>Ingredients: \n
+            
+                <ul>
+                {
+                    this.state.ingredients.forEach(ingredient => <li>{ingredient.original}</li>)
+                }
+                </ul>
 
-                    </Card.Text>
-                    <Card.Link href="#">Get Recipe</Card.Link>
-                    {/* <Card.Link href="#">Add to Favorites</Card.Link> */}
-                </Card.Body>
-            </Card>
+            </p>
+            </Modal.Body>
+            <Modal.Footer>Source: <a href={this.state.sourceUrl}>{this.state.credit}</a> </Modal.Footer>
+            </Modal>
+
         )
     }
 }
