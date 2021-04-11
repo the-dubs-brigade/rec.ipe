@@ -16,8 +16,14 @@ export default class RecipeCard extends Component {
             id: props.id,
             title: props.title,
             image: props.image,
+<<<<<<< HEAD
             likes: props.likes,
             modalToggle: false
+=======
+            likes: props.likes, 
+            showRecipeDetails: false,
+            url: props.url
+>>>>>>> e4245a1c9885e40f5e6c89f32e9e1d727fd7ed5d
         };
     }
 
@@ -50,10 +56,23 @@ export default class RecipeCard extends Component {
                             Get Recipe
                     </Button> */}
                     <Button variant="primary" onClick={() => this.setState({
+<<<<<<< HEAD
                             modalToggle: true
                         })
                         }>
                             Get Recipe
+=======
+                            showRecipeDetails: true})
+                    }>
+                        <a href= {this.state.url}
+                         style = {{
+                            color: "white",
+                            
+                        }}>
+                            
+                    Get Recipe
+                    </a>
+>>>>>>> e4245a1c9885e40f5e6c89f32e9e1d727fd7ed5d
                     </Button>
 
                     </Card.Body>
