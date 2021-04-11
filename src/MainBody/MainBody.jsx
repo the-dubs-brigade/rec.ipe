@@ -4,7 +4,6 @@ import HeaderBox from '../HeaderBox/HeaderBox.jsx';
 import Bar from "material-ui-search-bar";
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
-import SearchBar from '../SearchBar/SearchBar.jsx';
 import FooterBox from '../FooterBox/FooterBox.jsx';
 import './MainBody.css';
 
