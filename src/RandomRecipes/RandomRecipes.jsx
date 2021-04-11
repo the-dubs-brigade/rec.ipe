@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
-import Carousel from 'nuka-carousel';
+//import Carousel from 'nuka-carousel';
 import './RandomRecipes.css';
 import CardDeck from 'react-bootstrap/Card'
 
