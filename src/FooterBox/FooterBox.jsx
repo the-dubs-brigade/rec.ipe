@@ -10,8 +10,12 @@ export default class FooterBox extends Component {
     render() {
         return (
             <div className='FooterBox'>
-                <h1>
-                    The Dubs Brigade
+                <h1>Built by <a href="https://github.com/the-dubs-brigade" 
+                style = {{
+                    color: "white",
+                    
+                }}>
+                    [ The Dubs Brigade ]</a>
                     <div className='FooterBox-Subtitle'>
                         UWB Hacks from Home 2021
                     </div>
