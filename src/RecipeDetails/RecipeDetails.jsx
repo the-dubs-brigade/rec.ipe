@@ -22,8 +22,9 @@ export default class RecipeDetails extends Component {
         this.getRecipeDetails(this.state.id)
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.isOpen != prevProps.isOpen) {
+
+    componentDidUpdate(prevProps){
+        if (this.props.isOpen !== prevProps.isOpen){
             if (this.props.isOpen) {
                 this.getRecipeDetails(this.state.id)
             }
