@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import './HeaderBox.css';
+import './HeaderBox.css'
 
 export default class HeaderBox extends Component {
-    
-
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
     render() {
-        return (<div><h1>This is the Header component!</h1>
-        </div>);
+        return (
+        <div className="HeaderBox">
+            <h1>
+                REC.IPE
+                <div className="HeaderBox-Subtitle">
+                    Find Recipes Based Upon Ingredients You Have!
+                </div>
+            </h1>
+        </div>
+        );
     }
 }
-

@@ -17,7 +17,7 @@ export default class RecipeCard extends Component {
 
     render() {
         return (
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '35rem' }}>
                 <Card.Body>
                     <Card.Title>{this.state.title}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Likes: {this.state.likes}</Card.Subtitle>
