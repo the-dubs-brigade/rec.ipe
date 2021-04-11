@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RecipeResult from '../RecipeResult/RecipeResult.jsx';
+import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import IngredientsList from '../IngredientsList/IngredientsList.jsx';
 import './SearchPage.css';
 
@@ -16,7 +16,7 @@ export default class SearchPage extends Component {
     render() {
         return (<div><h1>This is the Search page component!</h1>
         <IngredientsList></IngredientsList>
-        <RecipeResult></RecipeResult>
+        <RecipeCard></RecipeCard>
         </div>);
     }
 }

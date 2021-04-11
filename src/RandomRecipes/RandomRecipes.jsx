@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RecipeResult from '../RecipeResult/RecipeResult.jsx';
+import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import Carousel from 'nuka-carousel';
 import './RandomRecipes.css';
 
@@ -34,14 +34,13 @@ export default class RandomRecipes extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <h2>Random Recipes:</h2>
                 <Carousel>
                     {
                         this.state.recipes.map(recipe =>
-                            <RecipeResult id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
+                            <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
                         )
                     }
                 </Carousel>
