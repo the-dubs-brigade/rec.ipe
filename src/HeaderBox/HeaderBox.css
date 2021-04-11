@@ -1,0 +1,15 @@
+.HeaderBox {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 2em;
+    background-color: rgb(66, 3, 85);
+    color: #fff;
+}
+
+.HeaderBox-Subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: medium;
+}
