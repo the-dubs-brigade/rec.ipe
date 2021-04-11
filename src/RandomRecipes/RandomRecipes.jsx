@@ -38,7 +38,7 @@ export default class RandomRecipes extends Component {
                 <h2>Random Recipe:</h2>
                 <div className="center">
                     {
-
+                        this.state.recipes &&
                         this.state.recipes.map(recipe =>
                             <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} url={recipe.sourceUrl} />
                         )
