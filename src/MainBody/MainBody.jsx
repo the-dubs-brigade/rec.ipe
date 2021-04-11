@@ -17,12 +17,12 @@ export default class MainBody extends Component {
     isSearching(props) {
         const searching = props.searching;
         if(!searching) {
-            return <div class="frontPage"><HeaderBox></HeaderBox>
+            return <div className="frontPage"><HeaderBox></HeaderBox>
                 <SearchBar></SearchBar>
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
-        return <div class="searchPage">
+        return <div className="searchPage">
             <SearchBar></SearchBar>
             <SearchPage></SearchPage>
         </div>
