@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import HeaderBox from '../HeaderBox/HeaderBox.jsx';
+import Bar from "material-ui-search-bar";
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
@@ -13,9 +14,18 @@ export default class MainBody extends Component {
         super(props);
         this.state = {
             searching: false,
+            search: '',
+            ingredients: [],
             width: 0,
             height: 0,
         };
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+            if(this.state.search.length != 0) {
+                this.searchToggle();
+            }
+        
     }
 
     searchToggle() {
@@ -28,21 +38,21 @@ export default class MainBody extends Component {
         const searching = this.state.searching;
         if(!searching) {
             return <div className="frontPage">
-                <SearchBar
-                onClick = {(e) => this.searchToggle()}
-                width = {this.state.width}
-                height = {this.state.height}
-                ></SearchBar>
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
         return <div className="searchPage">
-            <SearchBar
-            onClick = {(e) => this.searchToggle()}
-            width = {this.state.width}
-            height = {this.state.height}></SearchBar>
             <SearchPage></SearchPage>
         </div>
+    }
+
+    handleRequestSearch(event) {
+
+        //create the array of ingredients
+        this.setState({ingredients: this.state.search.split(', ')});
+
+        //testing the ingredients array
+        //setTimeout(()=> {console.log(this.state.ingredients);}, 1);
     }
 
     render() {
@@ -50,10 +60,13 @@ export default class MainBody extends Component {
         return (
             <div>
                 <HeaderBox></HeaderBox>
-                <Container maxWidth = "lg"><h1>This is the main body component!
-                    </h1>
+                <Container maxWidth = "lg">
+                    <Bar
+                value={this.state.search}
+                onChange={(newValue) => this.setState({search: newValue})}
+                onRequestSearch={this.handleRequestSearch.bind(this)}
+            />
                     {pageBody}
-                    <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
                     </Container>
                 <FooterBox></FooterBox>
             </div>

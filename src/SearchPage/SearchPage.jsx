@@ -36,10 +36,10 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        return (<div className="searchPage"><h1>This is the Search page component!</h1>
+        return (<div className="searchPage"><br></br>
         <IngredientsList
         ings = {this.state.ingredients}
-        />
+        /><br></br>
         <GridList 
         className = 'chipsList'
         cellHeight = {400}
