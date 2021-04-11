@@ -15,15 +15,14 @@ export default class SearchBar extends Component {
             ingredients: '',    //will hold the array of ingredients
         };
     }
-
     //detecting enter inputs
     handleRequestSearch(event) {
-
         //create the array of ingredients
         this.setState({ingredients: this.state.search.split(', ')});
 
         //testing the ingredients array
-        //setTimeout(()=> {console.log(this.state.ingredients);}, 1);
+        setTimeout(()=> {console.log(this.state.ingredients);}, 1);
+        this.setState({search: ''});
     }
     render() {
         return(
