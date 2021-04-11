@@ -3,13 +3,12 @@ import { Container } from '@material-ui/core';
 import HeaderBox from '../HeaderBox/HeaderBox.jsx';
 import Bar from "material-ui-search-bar";
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
-import SearchPage from '../SearchPage/SearchPage.jsx';
 import FooterBox from '../FooterBox/FooterBox.jsx';
 import './MainBody.css';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import GridList from '@material-ui/core/GridList';
 import IngredientsList from '../IngredientsList/IngredientsList.jsx';
-//import './SearchPage.css';
+import './SearchPage.css';
 
 export default class MainBody extends Component {
 
@@ -110,8 +109,6 @@ export default class MainBody extends Component {
                 onRequestSearch={this.handleRequestSearch.bind(this)}
             />
                     {pageBody}
-                    <RandomRecipes></RandomRecipes>
-                    <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
                     </Container>
                 <FooterBox></FooterBox>
             </div>

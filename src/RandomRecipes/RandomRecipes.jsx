@@ -19,7 +19,7 @@ export default class RandomRecipes extends Component {
     }
 
     loadRecipes = (count, tags) => {
-        let url = 'https://quickneasy-backend.herokuapp.com/random?count='
+        let url = 'https://quickneasy-backend.herokuapp.com/random?number='
             + count
         if (tags) {
             tags = tags.replace(" ", "+")
