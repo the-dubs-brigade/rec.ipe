@@ -45,7 +45,7 @@ export default class SearchPage extends Component {
         cellHeight = {400}
         >
         {this.state.results.map((res) => 
-        <li key = {res}>
+        <li key = {res.id}>
         <RecipeCard
         id = {res.id}
         title = {res.title}

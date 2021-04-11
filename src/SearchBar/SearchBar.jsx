@@ -8,12 +8,22 @@ import './SearchBar.css';
 */
 
 export default class SearchBar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log(props);
         this.state = {
             search: '',         //text in the search bar
-            ingredients: '',    //will hold the array of ingredients
+            ingredients: [],    //will hold the array of ingredients
+            width: props.width,
+            height: props.height,
         };
+    }
+
+    handleChange(newValue, nowSearching) {
+        console.log(this.props);
+        nowSearching();
+        this.setState({search: newValue});
+
     }
 
     //detecting enter inputs
@@ -29,7 +39,7 @@ export default class SearchBar extends Component {
         return(
             <Bar
                 value={this.state.search}
-                onChange={(newValue) => this.setState({search: newValue})}
+                onChange={(newValue) => this.handleChange(newValue, event)}
                 onRequestSearch={this.handleRequestSearch.bind(this)}
             />
         );

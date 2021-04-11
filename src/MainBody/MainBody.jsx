@@ -12,24 +12,39 @@ export default class MainBody extends Component {
         super(props);
         this.state = {
             searching: false,
+            width: 0,
+            height: 0,
         };
     }
 
     searchToggle() {
-        
         this.setState({searching: !this.state.searching});
+    }
+
+    startSearch(event) {
+        event.preventDefault();
+        if(!this.state.searching) {
+            this.searchToggle();
+        }
     }
 
     isSearching(props) {
         const searching = props.searching;
         if(searching) {
             return <div className="frontPage"><HeaderBox></HeaderBox>
-                <SearchBar></SearchBar>
+                <SearchBar
+                onSearchStart = {startSearch}
+                width = {this.state.width}
+                height = {this.state.height}
+                ></SearchBar>
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
         return <div className="searchPage">
-            <SearchBar></SearchBar>
+            <SearchBar
+            
+            width = {this.state.width}
+            height = {this.state.height}></SearchBar>
             <SearchPage></SearchPage>
         </div>
     }
