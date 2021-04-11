@@ -8,8 +8,7 @@ export default class IngredientsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: ["pineapple", "apples", "oranges"],
-            ingChipList: []
+            ingredients: props.ings
         };
     }
 
@@ -17,6 +16,8 @@ export default class IngredientsList extends Component {
 
     
     deleteEvent(event, ing) {
+        //Get the index of the item to delete, prune it from ingredients,
+        //set the new state which will generate the new list
         let ind = this.state.ingredients.indexOf(ing);
         event.preventDefault();
         console.log(ind);
@@ -45,11 +46,11 @@ export default class IngredientsList extends Component {
 
     render() {
         let ings = this.state.ingredients;
-        return (<div className = "iList"><h1>This is the Ingredients list component!</h1>
+        return (<div className = "iList">
         <GridList 
         className = 'chipsList'
         cellHeight = {30}
-        cols = {10}
+        cols = {9}
         >
             {ings.map((ing) => <li key = {ing}><IngredientBox 
                 key = {ing} 
