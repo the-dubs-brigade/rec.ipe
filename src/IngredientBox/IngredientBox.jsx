@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Chip from '@material-ui/core/Chip';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu'
 import './IngredientBox.css';
 
 export default class IngredientBox extends Component {
@@ -6,12 +8,17 @@ export default class IngredientBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
+            iName: props.name,
         };
     }
 
     render() {
-        return (<div><h1>This is the Ingredient Box component!</h1></div>);
+        return (<Chip 
+            icon = {<RestaurantMenuIcon/>}
+            label = {this.state.iName}
+            onDelete = {this.props.handleDelete}
+            
+        />);
     }
 }
 

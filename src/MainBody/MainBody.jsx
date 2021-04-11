@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from '@material-ui/core';
 import HeaderBox from '../HeaderBox/HeaderBox.jsx';
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
@@ -16,13 +17,13 @@ export default class MainBody extends Component {
 
     isSearching(props) {
         const searching = props.searching;
-        if(!searching) {
-            return <div class="frontPage"><HeaderBox></HeaderBox>
+        if(searching) {
+            return <div className="frontPage"><HeaderBox></HeaderBox>
                 <SearchBar></SearchBar>
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
-        return <div class="searchPage">
+        return <div className="searchPage">
             <SearchBar></SearchBar>
             <SearchPage></SearchPage>
         </div>
@@ -30,10 +31,10 @@ export default class MainBody extends Component {
 
     render() {
         let pageBody = this.isSearching(this.state.searching);
-        return (<div><h1>This is the main body component!</h1>
+        return (<Container maxWidth = "lg"><h1>This is the main body component!</h1>
         {pageBody}
         <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
-        </div>);
+        </Container>);
     }
 }
 
