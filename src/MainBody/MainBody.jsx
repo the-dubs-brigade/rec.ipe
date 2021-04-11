@@ -15,6 +15,11 @@ export default class MainBody extends Component {
         };
     }
 
+    searchToggle() {
+        
+        this.setState({searching: !this.state.searching});
+    }
+
     isSearching(props) {
         const searching = props.searching;
         if(searching) {

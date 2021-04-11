@@ -46,12 +46,12 @@ export default class SearchPage extends Component {
         >
         {this.state.results.map((res) => 
         <li key = {res}>
-        <RecipeResult
+        <RecipeCard
         id = {res.id}
         title = {res.title}
         image = {res.image}
         likes = {res.likes}
-        ></RecipeResult>
+        ></RecipeCard>
         </li>)}
         </GridList>
 
