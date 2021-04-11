@@ -21,16 +21,21 @@ export default class MainBody extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-            if(this.state.search.length != 0) {
-                this.searchToggle();
+        console.log(this.state.search.length);
+            if(this.state.search.length !== 0) {
+                if(!this.state.searching) {
+                    this.setState({searching: !this.state.searching});
+                } else {
+                    if(this.state.search.charAt(this.state.search.length) == ',') {
+
+                    }
+                }
             }
         
     }
 
     searchToggle() {
-        if(!this.state.searching) {
-        this.setState({searching: !this.state.searching});
-        }
+        
     }
 
     isSearching(props) {
