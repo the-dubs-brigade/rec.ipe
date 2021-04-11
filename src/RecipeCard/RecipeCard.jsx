@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './RecipeCard.css';
+import RecipeDetails from '../RecipeDetails/RecipeDetails.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -12,27 +13,32 @@ export default class RecipeCard extends Component {
             id: props.id,
             title: props.title,
             image: props.image,
-            likes: props.likes
+            likes: props.likes, 
+            showRecipeDetails: false
         };
     }
 
     render() {
         return (
+            <div>
+            <RecipeDetails id={this.state.id} isOpen={this.state.showRecipeDetails}/>
             <Card style={{ width: '35rem' }}>
                 <Card.Body>
                     <Card.Title>{this.state.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Likes: {this.state.likes}</Card.Subtitle>
                     <img src={this.state.image} alt="recipe"></img>
                     <Card.Text>
 
                     </Card.Text>
-                    <Button variant="primary" onClick={this.openModal}>
+                    <Button variant="primary" onClick={() => this.setState({
+                            showRecipeDetails: true})
+                    }>
                     Get Recipe
                     </Button>
                    
     
                 </Card.Body>
             </Card>
+            </div>
         )
     }
 }

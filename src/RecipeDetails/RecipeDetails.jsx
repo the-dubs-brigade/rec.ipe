@@ -8,6 +8,7 @@ export default class RecipeDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isOpen: false,
             id: props.id,
             title: props.title,
             image: props.image,
@@ -18,11 +19,20 @@ export default class RecipeDetails extends Component {
             readyInMinutes: props.readyInMinutes,
             sourceUrl: props.sourceUrl,
         };
-        this.getRecipeDetails(props.id)
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.isOpen != prevProps.isOpen){
+            if (this.props.isOpen) {
+                this.getRecipeDetails(this.state.id)
+            }
+        }
+    }
+ 
+    closeModal = () => this.setState({ isOpen: false });
+  
     getRecipeDetails = (id) => {
-        let url = 'https://quickneasy-backend.herokuapp.com//recipedetails/?id='
+        let url = 'https://quickneasy-backend.herokuapp.com/recipedetails/?id='
             + id
     
         console.log(url)
@@ -44,24 +54,19 @@ export default class RecipeDetails extends Component {
 
     render() {
         return (
-            <Modal show={true}>
-            <Modal.Header>{this.state.title}</Modal.Header>
-            <Modal.Body>
-            <p>Likes: {this.state.likes}</p>
-            <img src={this.state.image} alt="recipe"></img>
-            <p>Ingredients: \n
-            
-                <ul>
-                {
-                    this.state.ingredients.forEach(ingredient => <li>{ingredient.original}</li>)
-                }
-                </ul>
-
-            </p>
-            </Modal.Body>
-            <Modal.Footer>Source: <a href={this.state.sourceUrl}>{this.state.credit}</a> </Modal.Footer>
-            </Modal>
-
+            <div>
+                <Modal show={this.state.isOpen}>
+                <Modal.Header>{this.state.title}</Modal.Header>
+                <Modal.Body>
+                
+                <img src={this.state.image} alt="recipe"></img>
+                <p>Ingredients: \n
+                    {this.state.ingredients}
+                </p>
+                </Modal.Body>
+                <Modal.Footer>Source: <a href={this.state.sourceUrl}>{this.state.credit}</a> </Modal.Footer>
+                </Modal>
+            </div>
         )
     }
 }

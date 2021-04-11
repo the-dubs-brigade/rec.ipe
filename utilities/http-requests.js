@@ -1,7 +1,7 @@
 // Returns the json response for getting random recipes. 
 async function getRandomRecipes(tags, count) {
 
-    let url = 'https://quickneasy-backend.herokuapp.com/random?count='
+    let url = 'https://quickneasy-backend.herokuapp.com/random?number='
         + count
     if (tags) {
         tags = tags.replace(" ", "+")

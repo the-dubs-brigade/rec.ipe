@@ -11,7 +11,6 @@ export default class RandomRecipes extends Component {
         this.state = {
             recipes: [],
         };
-        console.log("creating random recipes")
     }
 
     componentDidMount() {
@@ -19,7 +18,7 @@ export default class RandomRecipes extends Component {
     }
 
     loadRecipes = (count, tags) => {
-        let url = 'https://quickneasy-backend.herokuapp.com/random?count='
+        let url = 'https://quickneasy-backend.herokuapp.com/random?number='
             + count
         if (tags) {
             tags = tags.replace(" ", "+")
@@ -35,14 +34,16 @@ export default class RandomRecipes extends Component {
     render() {
         return (
             <div>
-                <h2>Random Recipes:</h2>
-                <CardDeck>
+                <h2>Random Recipe:</h2>
+                <div>
                     {
+
                         this.state.recipes.map(recipe =>
                             <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />
                         )
+
                     }
-                </CardDeck>
+                </div>
             </div>
         );
 
