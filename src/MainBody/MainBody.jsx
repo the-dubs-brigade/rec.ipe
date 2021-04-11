@@ -27,7 +27,7 @@ export default class MainBody extends Component {
     isSearching(props) {
         const searching = this.state.searching;
         if(!searching) {
-            return <div className="frontPage"><HeaderBox></HeaderBox>
+            return <div className="frontPage">
                 <SearchBar
                 onClick = {(e) => this.searchToggle()}
                 width = {this.state.width}
