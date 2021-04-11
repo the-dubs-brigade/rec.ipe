@@ -15,10 +15,6 @@ export default class IngredientsList extends Component {
 
     //Need to handle deletions within the ingredient boxes
 
-    componentDidMount() {
-        //this.buildList();
-        console.log('aaa');
-    }
     
     deleteEvent(event, ing) {
         let ind = this.state.ingredients.indexOf(ing);
