@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Quick 'n' Easy Recipes created by [The Dubs Brigade] for UWB Hacks at Home 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://gray-cliff-0fad8b61e.azurestaticapps.net/#
 
-## Available Scripts
+# Introduction:
 
-In the project directory, you can run:
+Quick 'n' Easy is designed to be a web application that generates recipes based upon ingredients that the user inputs into the search bar.  The main inspiration for this application comes from the fact that during the COVID-19 pandemic and subsequent quarantine, people needed to cook at home more often than before. We recognized that people often have limited ingredients at their disposal or are simply bored of the recipes that they already know. This tool can be used to generate new recipe ideas quickly using ingredients you already have at your disposal.
 
-### `yarn start`
+Quick 'n' Easy utilizes the Spoonacular API to generate the recipes. Spoonacular recipe API includes over 360,000 recipes with detailed information such as meal classification (vegetarian, vegan, etc), nutrition facts, and much more. The Quick 'n' Easy tool generates the 10 best matching recipes from the ingredients that the user inputs which maximizes the ingredients the user has, or minimizes the ingredients that the user does not have.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Future plans for Quick 'n' Easy are extensive, and The Dubs Brigade development team hopes to implement the features as they become ready. The following sections of this document will discuss the goals of the project, the desired user experience, implementation details, issues encountered, bugs fixed or still present, and future work to be done.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Credits:
+Spoonacular API
+Create-react-app
+Material-ui
+Material-ui-search-bar
+React-bootstrap
 
-### `yarn test`
+# Goals of the Project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create a fullstack web application
+- Utilize the Spoonacular API to generate recipes based upon ingredients inputted by the user
+- Gain experience using React
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Desired User Experience:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Dubs Brigade development team aimed to create a minimalistic UI for ease of use when interacting with our application.  When researching other products on the market we found that these applications often had clunky UI's that detracted from the user experience. By minimalizing the design, we aimed to create a user experience that is accessible to all people and that could easily be used from any device, at any time.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the user first accesses Quick 'n' Easy, the homepage features a search bar and a list of randomly generated recipes. The user can either select one of the randomly generated recipes, or input ingredients into the search bar (each ingredients needs to be seperated by a comma) and then either pressing enter or clicking the search icon. 
 
-### `yarn eject`
+If the user wants to select one of the randomly generated recipes, all the user needs to do is click the get recipe button under the recipe image, and the user will be linked to a website that contains the relevant recipe information. The user is able to navigate to searched recipes in the same manner.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Implementation Details:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://github.com/the-dubs-brigade
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Issues Encountered:
 
-## Learn More
+The Dubs Brigade development team faced many issues throughout the course of this project. For the entirety of the development team, this was our first significant project using React.js.  This in turn required each team member to do an extensive amount of research in order to get to a MVP. The majority of issues encountered came during the front-end portion of development.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Bugs Fixed or Still Present:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Future Work to be Done:
 
-### Analyzing the Bundle Size
+The Dubs Brigade development teams has many features we aim to add in the future. This include but are not limited to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Improving the user UI
+- Authentication to enable users to have a persistent profile. This would enable users to favorite recipes and support other features to be implemented later
+- Host the recipes locally so that the user does not need to be linked to another website
+- Create a conversion tool for converting ingriedient measurements
+- Create a tool for generating a shopping list when using recipes that the user does not have all the ingredients for
