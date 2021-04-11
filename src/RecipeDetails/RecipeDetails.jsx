@@ -18,6 +18,28 @@ export default class RecipeDetails extends Component {
             readyInMinutes: props.readyInMinutes,
             sourceUrl: props.sourceUrl,
         };
+        this.getRecipeDetails(props.id)
+    }
+
+    getRecipeDetails = (id) => {
+        let url = 'https://quickneasy-backend.herokuapp.com//recipedetails/?id='
+            + id
+    
+        console.log(url)
+        fetch(url).then(response => response.json()).then(json => {
+            console.log(json)
+            this.setState({     
+                id: json.id,
+                title: json.title,
+                image: json.image,
+                likes: json.likes,
+                credit: json.creditsText,
+                ingredients: json.extendedIngredients,
+                instructions: json.instructions, 
+                readyInMinutes: json.readyInMinutes,
+                sourceUrl: json.sourceUrl,
+            })
+        })
     }
 
     render() {

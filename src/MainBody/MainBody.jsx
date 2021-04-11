@@ -110,6 +110,8 @@ export default class MainBody extends Component {
                 onRequestSearch={this.handleRequestSearch.bind(this)}
             />
                     {pageBody}
+                    <RandomRecipes></RandomRecipes>
+                    <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
                     </Container>
                 <FooterBox></FooterBox>
             </div>
