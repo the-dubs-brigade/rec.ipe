@@ -9,29 +9,12 @@ export default class SearchPage extends Component {
 
     constructor(props) {
         super(props);
+        console.log('aaa');
+        console.log(props.results);
+        
         this.state = {
             ingredients: props.ingredients,
-            results: [
-                {
-                    id: 659581,
-                    title: "Scotch Eggs",
-                    image: "https://spoonacular.com/recipeImages/659581-312x231.jpg",
-                    likes: 2
-                },
-                {
-                    id: 644965,
-                    title: "Goat Cheese, Fig And Proscuitto Crostini",
-                    image: "https://spoonacular.com/recipeImages/644965-312x231.jpg",
-                    likes: 2
-                },
-                {
-                    id: 715494,
-                    title: "Guinness and Brats",
-                    image: "https://spoonacular.com/recipeImages/715494-312x231.jpg",
-                    likes: 2
-                }
-            ],
-            submit: 0
+            results: props.results
         };
     }
 

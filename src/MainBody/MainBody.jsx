@@ -6,6 +6,10 @@ import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
 import FooterBox from '../FooterBox/FooterBox.jsx';
 import './MainBody.css';
+import RecipeCard from '../RecipeCard/RecipeCard.jsx';
+import GridList from '@material-ui/core/GridList';
+import IngredientsList from '../IngredientsList/IngredientsList.jsx';
+//import './SearchPage.css';
 
 export default class MainBody extends Component {
 
@@ -17,8 +21,21 @@ export default class MainBody extends Component {
             ingredients: [],
             width: 0,
             height: 0,
+            results: []
         };
     }
+
+    /*
+    async function GetRecipesByIngredients(ingredients) {
+    ingredients = ingredients.replace(" ", "+")
+    let url = 'https://quickneasy-backend.herokuapp.com/getrecipesbyingredients?ingredients=' + ingredients
+
+    let response = await fetch(url)
+    let data = await response.json()
+    console.log(data)
+    return data
+
+    */
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(this.state.search.length);
@@ -28,7 +45,9 @@ export default class MainBody extends Component {
                 } else {
                     if(this.state.search.charAt(this.state.search.length - 1) === ',') {
                         let ingArr = this.state.ingredients;
-                        ingArr.push(this.state.search.substring(0, this.state.search.length - 1));
+                        if(!ingArr.includes(this.state.search.substring(0,this.state.search.length - 1))) {
+                            ingArr.push(this.state.search.substring(0, this.state.search.length - 1));
+                        }
                         this.setState({
                             ingredients: ingArr,
                             search: ''
@@ -46,20 +65,37 @@ export default class MainBody extends Component {
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
-        return <div className="searchPage">
-            <SearchPage
-            ingredients = {this.state.ingredients}
-            ></SearchPage>
-        </div>
+        console.log(this.state.results);
+        return <div className="searchPage"><br></br>
+        <IngredientsList
+        ings = {this.state.ingredients}
+        /><br></br>
+        <GridList 
+        className = 'chipsList'
+        cellHeight = {400}
+        >
+        {this.state.results.map((res) => 
+        <li key = {res.id}>
+        <RecipeCard
+        id = {res.id}
+        title = {res.title}
+        image = {res.image}
+        likes = {res.likes}
+        ></RecipeCard>
+        </li>)}
+        </GridList>
+
+        </div>;
     }
 
     handleRequestSearch(event) {
-
-        //create the array of ingredients
-        this.setState({ingredients: this.state.search.split(', ')});
-
-        //testing the ingredients array
-        //setTimeout(()=> {console.log(this.state.ingredients);}, 1);
+        let ingString = this.state.ingredients.join('+');
+        let url = 'https://quickneasy-backend.herokuapp.com/recipesbyingredients?ingredients=' + ingString
+        fetch(url).then(response => response.json()).then(json => {
+            console.log(json)
+            this.setState({ results: json })
+            console.log(this.state.results);
+        })
     }
 
     render() {
