@@ -9,6 +9,7 @@ import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import GridList from '@material-ui/core/GridList';
 import IngredientsList from '../IngredientsList/IngredientsList.jsx';
 import './SearchPage.css';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 export default class MainBody extends Component {
 
@@ -39,9 +40,7 @@ export default class MainBody extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(this.state.search.length);
             if(this.state.search.length > 1) {
-                if(!this.state.searching) {
-                    this.setState({searching: !this.state.searching});
-                } else {
+                this.turnOnSearch();
                     if(this.state.search.charAt(this.state.search.length - 1) === ',') {
                         let ingArr = this.state.ingredients;
                         if(!ingArr.includes(this.state.search.substring(0,this.state.search.length - 1))) {
@@ -54,7 +53,25 @@ export default class MainBody extends Component {
                     }
                 }
             }
-        
+    
+    turnOnSearch() {
+        if(!this.state.searching) {
+            this.setState({
+                searching: true
+            })
+        }
+    }
+    
+    hasResults() {
+        if(this.state.results.length === 0) {
+            return <div className="skellyList"
+                style = {{
+                display: "inline-block",
+                }}
+                >
+                <Skeleton variant="rect" width={200} height={400} />
+                </div>;
+        }
     }
 
     isSearching(props) {
@@ -65,25 +82,28 @@ export default class MainBody extends Component {
             </div>;
         }
         console.log(this.state.results);
+        let skellyboi = this.hasResults();
         return <div className="searchPage"><br></br>
+        <h5>Enter ingredients separated by commas, then search when your list is done!</h5>
         <IngredientsList
         ings = {this.state.ingredients}
         /><br></br>
+        {skellyboi}
         <GridList 
-        className = 'chipsList'
-        cellHeight = {400}
-        >
-        {this.state.results.map((res) => 
-        <li key = {res.id}>
-        <RecipeCard
-        id = {res.id}
-        title = {res.title}
-        image = {res.image}
-        likes = {res.likes}
-        ></RecipeCard>
-        </li>)}
-        </GridList>
-
+            className = 'chipsList'
+            cellHeight = {400}
+            >
+            {this.state.results.map((res) => 
+            <li key = {res.id}>
+            <RecipeCard
+            id = {res.id}
+            title = {res.title}
+            image = {res.image}
+            likes = {res.likes}
+            ></RecipeCard>
+            </li>)}
+            </GridList>
+            
         </div>;
     }
 

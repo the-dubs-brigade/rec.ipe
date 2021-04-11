@@ -15,7 +15,7 @@ export default class RandomRecipes extends Component {
     }
 
     componentDidMount() {
-        this.loadRecipes(5, null)
+        //this.loadRecipes(5, null)
     }
 
     loadRecipes = (count, tags) => {
