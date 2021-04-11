@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import HeaderBox from '../HeaderBox/HeaderBox.jsx';
+import Bar from "material-ui-search-bar";
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
-import SearchBar from '../SearchBar/SearchBar.jsx';
 import FooterBox from '../FooterBox/FooterBox.jsx';
 import './MainBody.css';
 
@@ -13,26 +13,53 @@ export default class MainBody extends Component {
         super(props);
         this.state = {
             searching: false,
+            search: '',
+            ingredients: [],
+            width: 0,
+            height: 0,
         };
     }
 
-    searchToggle() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.state.search.length);
+            if(this.state.search.length > 1) {
+                if(!this.state.searching) {
+                    this.setState({searching: !this.state.searching});
+                } else {
+                    if(this.state.search.charAt(this.state.search.length - 1) === ',') {
+                        let ingArr = this.state.ingredients;
+                        ingArr.push(this.state.search.substring(0, this.state.search.length - 1));
+                        this.setState({
+                            ingredients: ingArr,
+                            search: ''
+                        })
+                    }
+                }
+            }
         
-        this.setState({searching: !this.state.searching});
     }
 
     isSearching(props) {
-        const searching = props.searching;
-        if(searching) {
-            return <div className="frontPage"><HeaderBox></HeaderBox>
-                <SearchBar></SearchBar>
+        const searching = this.state.searching;
+        if(!searching) {
+            return <div className="frontPage">
                 <RandomRecipes></RandomRecipes>
             </div>;
         }
         return <div className="searchPage">
-            <SearchBar></SearchBar>
-            <SearchPage></SearchPage>
+            <SearchPage
+            ingredients = {this.state.ingredients}
+            ></SearchPage>
         </div>
+    }
+
+    handleRequestSearch(event) {
+
+        //create the array of ingredients
+        this.setState({ingredients: this.state.search.split(', ')});
+
+        //testing the ingredients array
+        //setTimeout(()=> {console.log(this.state.ingredients);}, 1);
     }
 
     render() {
@@ -40,8 +67,12 @@ export default class MainBody extends Component {
         return (
             <div>
                 <HeaderBox></HeaderBox>
-                <Container maxWidth = "lg"><h1>This is the main body component!
-                    </h1>
+                <Container maxWidth = "lg">
+                    <Bar
+                value={this.state.search}
+                onChange={(newValue) => this.setState({search: newValue})}
+                onRequestSearch={this.handleRequestSearch.bind(this)}
+            />
                     {pageBody}
                     <RandomRecipes></RandomRecipes>
                     <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>

@@ -10,7 +10,7 @@ export default class SearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: ["apples", "oranges", "pineapples", "platypus"],
+            ingredients: props.ingredients,
             results: [
                 {
                     id: 659581,
@@ -36,16 +36,16 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        return (<div className="searchPage"><h1>This is the Search page component!</h1>
+        return (<div className="searchPage"><br></br>
         <IngredientsList
         ings = {this.state.ingredients}
-        />
+        /><br></br>
         <GridList 
         className = 'chipsList'
         cellHeight = {400}
         >
         {this.state.results.map((res) => 
-        <li key = {res}>
+        <li key = {res.id}>
         <RecipeCard
         id = {res.id}
         title = {res.title}
