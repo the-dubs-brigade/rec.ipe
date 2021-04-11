@@ -11,7 +11,7 @@ export default class HeaderBox extends Component {
         return (
         <div className="HeaderBox">
             <h1>
-                <a href="" 
+                <a href="./#" 
                 onClick = {this.props.sendHome}
                 style = {{
                     color: "white",
