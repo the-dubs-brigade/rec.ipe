@@ -1,0 +1,15 @@
+.FooterBox{
+    width: 100%;
+    background-color: rgb(66, 3, 85);
+    color: #fff;
+    bottom:0;
+    position:relative;
+    height:125px;
+    margin-top:250px;
+    padding-top:10px;
+}
+
+.FooterBox-Subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: medium;
+}

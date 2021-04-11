@@ -4,6 +4,7 @@ import HeaderBox from '../HeaderBox/HeaderBox.jsx';
 import RandomRecipes from '../RandomRecipes/RandomRecipes.jsx';
 import SearchPage from '../SearchPage/SearchPage.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
+import FooterBox from '../FooterBox/FooterBox.jsx';
 import './MainBody.css';
 
 export default class MainBody extends Component {
@@ -36,10 +37,17 @@ export default class MainBody extends Component {
 
     render() {
         let pageBody = this.isSearching(this.state.searching);
-        return (<Container maxWidth = "lg"><h1>This is the main body component!</h1>
-        {pageBody}
-        <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
-        </Container>);
+        return (
+            <div>
+                <HeaderBox></HeaderBox>
+                <Container maxWidth = "lg"><h1>This is the main body component!
+                    </h1>
+                    {pageBody}
+                    <h1>Everything aside from the Search bar is supposed to conditionally appear.</h1>
+                    </Container>
+                <FooterBox></FooterBox>
+            </div>
+        );
     }
 }
 
